@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent {
   
+  new = false;
 
   courses = [
     {vote: {like: 2, disLike: 0}, id: 1, name: "Laravel", description: "Lorem ipsum dolor sit amet", price: 23.1, datePublish: new Date(), active: true },
@@ -30,11 +31,12 @@ export class CoursesComponent {
 
   etat: boolean = true;
 
-  title = "Formation en angular";
+  title = "List of courses";
 
   constructor() { }
 
   editCourse(course, i) {
+    this.new = true;
     this.index = i;
     this.etat = false;
     this.course = course;
@@ -44,11 +46,32 @@ export class CoursesComponent {
     this.courses[this.index] = this.course;
     this.etat = true;
     this.index = -1;
+    this.new = false;
+
+    this.course = {
+      id: this.courses.length + 1,
+      name: '',
+      description: '',
+      price: 0,
+      datePublish: new Date(),
+      active: true,
+      vote: {like: 0, disLike: 0}
+    }
   }
 
 
   addCourse() {
     this.courses.unshift(this.course);
+    this.new = false;
+    this.course = {
+      id: this.courses.length + 1,
+      name: '',
+      description: '',
+      price: 0,
+      datePublish: new Date(),
+      active: true,
+      vote: {like: 0, disLike: 0}
+    }
   }
 
   deleteCourse(index) {

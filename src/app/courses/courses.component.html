@@ -1,21 +1,27 @@
+  
+<div class="row mt-3">
+  <div class="col-md-6 ">
+     <h1>{{ title }}</h1>
+  </div>
+  <div class="col-md-6">
+    <p class="text-right">
+      <button class="btn btn-primary btn-sm" (click)="new = !new">
+        <i class="fa fa-plus"></i> new
+      </button>
+    </p>
+  </div>
+    
+      
+   
+  
+</div>
 
   <div class="row">
     <div class="col-md-4 mx-auto">
-        
-      <app-panel>
-        
-        <div class="body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consequatur soluta, officiis animi, ad accusantium iusto est cupiditate similique vitae sed quidem provident pariatur quibusdam. Alias aliquid velit reiciendis illum.
-        </div>
-
-        <div class="title">
-          <h1>Salam les amis</h1>
-        </div>
-      </app-panel>
-
+       
       
-        <h1>{{ title }}</h1>
-      
+     <div *ngIf="new">
+
       <div class="form-group">
         <label for="name">Name</label>
         <input [(ngModel)]="course.name" id="name" name="name" type="text" class="form-control">
@@ -34,7 +40,7 @@
        
     <button *ngIf="etat" class="btn btn-success btn-block" (click)="addCourse()">Add</button>
     <button *ngIf="!etat" class="btn btn-danger btn-block" (click)="updateCourse()">Update</button>
-
+  </div>
     </div>
   </div>
  
